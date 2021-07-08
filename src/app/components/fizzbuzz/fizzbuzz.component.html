@@ -1,1 +1,6 @@
-<p>fizzbuzz works!</p>
+<div *ngIf="dataArray.length" class="data">
+  <ul>
+    <li *ngFor="let item of dataArray; index">{{ item }}</li>
+  </ul>
+</div>
+<button (click)="makeFzBz()">FizzBuzz!</button>

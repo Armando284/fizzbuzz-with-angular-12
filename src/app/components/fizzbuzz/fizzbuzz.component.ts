@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-fizzbuzz',
   templateUrl: './fizzbuzz.component.html'
 })
-export class FizzbuzzComponent {
+export class FizzbuzzComponent implements OnInit {
 
   dataArray: any[];
 
@@ -12,6 +12,8 @@ export class FizzbuzzComponent {
     this.dataArray = [];
     this.makeArray();
   }
+
+  ngOnInit() { }
 
   makeArray() {
     for (let i = 0; i < 100; i++) {
