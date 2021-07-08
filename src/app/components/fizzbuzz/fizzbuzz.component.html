@@ -1,6 +1,21 @@
-<div *ngIf="dataArray.length" class="data">
-  <ul>
-    <li *ngFor="let item of dataArray; index">{{ item }}</li>
-  </ul>
+<div class="fzbz">
+
+  <button class="btn btn-primary" (click)="makeFzBz()">FizzBuzz!</button>
+  <div *ngIf="dataArray.length" class="data">
+    <ul>
+      <li [ngClass]="{ 'not-num': (item === 'Fizz' || item === 'Buzz' || item === 'FizzBuzz' ) }"
+        *ngFor="let item of dataArray; index">{{ item }}</li>
+    </ul>
+  </div>
+
+  <div class="totals">
+    <h3>Totals</h3>
+    <div>
+      <p>Divisible by 3: <span>{{ hashTable.d_by_3 }}</span>.</p>
+      <p>Divisible by 5: <span>{{ hashTable.d_by_5 }}</span>.</p>
+      <p>Divisible by 3 and 5: <span>{{ hashTable.d_by_3_and_5 }}</span>.</p>
+      <p>Rest: <span>{{ hashTable.rest }}</span>.</p>
+    </div>
+  </div>
+
 </div>
-<button (click)="makeFzBz()">FizzBuzz!</button>

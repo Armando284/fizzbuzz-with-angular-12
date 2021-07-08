@@ -1,3 +1,5 @@
-<div class="container">
+<div [ngClass]="{ 'first-bg': getBg() === 0, 'second-bg': getBg() === 1, 'third-bg': getBg() === 2 }" class="container"
+  (click)="changeBg()">
+  <h1>FizzBuzz</h1>
   <app-fizzbuzz></app-fizzbuzz>
 </div>

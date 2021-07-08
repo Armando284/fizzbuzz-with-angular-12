@@ -7,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
 export class FizzbuzzComponent implements OnInit {
 
   dataArray: any[];
+  hashTable: { d_by_3: number, d_by_5: number, d_by_3_and_5: number, rest: number };
+  done: boolean;
 
   constructor() {
     this.dataArray = [];
     this.makeArray();
+    this.hashTable = {
+      d_by_3: 0,
+      d_by_5: 0,
+      d_by_3_and_5: 0,
+      rest: 0
+    };
+    this.done = false;
   }
 
   ngOnInit() { }
@@ -22,16 +31,24 @@ export class FizzbuzzComponent implements OnInit {
   }
 
   makeFzBz() {
-    for (let i = 0; i < this.dataArray.length; i++) {
-      if (this.dataArray[i] % 5 === 0) {
-        if (this.dataArray[i] % 3 === 0) {
-          this.dataArray[i] = 'FizzBuzz';
+    if (!this.done) { // avoid working the data more than once on click
+      for (let i = 0; i < this.dataArray.length; i++) {
+        if (this.dataArray[i] % 5 === 0) {
+          if (this.dataArray[i] % 3 === 0) {
+            this.dataArray[i] = 'FizzBuzz';
+            this.hashTable.d_by_3_and_5++;
+          } else {
+            this.dataArray[i] = 'Buzz';
+            this.hashTable.d_by_5++;
+          }
+        } else if (this.dataArray[i] % 3 === 0) {
+          this.dataArray[i] = 'Fizz';
+          this.hashTable.d_by_3++;
         } else {
-          this.dataArray[i] = 'Buzz';
+          this.hashTable.rest++;
         }
-      } else if (this.dataArray[i] % 3 === 0) {
-        this.dataArray[i] = 'Fizz';
       }
+      this.done = true;
     }
   }
 
