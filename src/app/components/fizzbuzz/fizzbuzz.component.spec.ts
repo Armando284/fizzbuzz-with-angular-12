@@ -25,9 +25,7 @@ describe('FizzbuzzComponent', () => {
 
   it('#makeArray() should fill #dataArray with 100 elements', () => {
     const fbz = new FizzbuzzComponent();
-    expect(fbz.dataArray.length()).toBe(0, 'null at first');
-    fbz.makeArray();
-    expect(fbz.dataArray.length()).toBe(100, 'null at first');
+    expect(fbz.dataArray.length).toBe(100, '100 elements');
   });
 
   it('#makeFzBz() should change output divisible by 3 by string #"Fizz"', () => {
@@ -63,8 +61,8 @@ describe('FizzbuzzComponent', () => {
   it('#makeFzBz() output not divisible by 3 and 5 should stay as numbers', () => {
     const fbz = new FizzbuzzComponent();
     fbz.makeFzBz();
-    expect(fbz.dataArray[1]).toBe(2, 'divisible by 3 changed to "Buzz"');
-    expect(fbz.dataArray[25]).toBe(26, 'divisible by 3 changed to "Buzz"');
-    expect(fbz.dataArray[71]).toBe(72, 'divisible by 3 changed to "Buzz"');
+    expect(fbz.dataArray[1]).toBe(2, 'should be numbers');
+    expect(fbz.dataArray[25]).toBe(26, 'should be numbers');
+    expect(fbz.dataArray[72]).toBe(73, 'should be numbers');
   });
 });
