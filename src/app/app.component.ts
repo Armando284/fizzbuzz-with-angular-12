@@ -11,11 +11,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit() { }
 
-  getBg() {
+  getBg(): number {
     return this.clickCount % 3;
   }
 
-  changeBg() {
+  changeBg(): void {
     this.clickCount++;
   }
 }
